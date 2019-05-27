@@ -25,3 +25,10 @@ module.exports= {
         return 'Boa noite!'
     }
 }
+
+//Para utilizar biblioteca de terceiros, baixa baixar pelo npm e pode ser utilizado até em pastas abaixo
+//No caso foi instalado o lodash, utilizando o comendo npm i lodash a partir do terminal do visual code (utlizando o node.js, no caso)
+//Utilizando o comando -g na hora de instalar um pacote, será feita uma instalação global
+
+
+//A partir dessa pasta, cada pasta dentro dela será um "projeto" novo

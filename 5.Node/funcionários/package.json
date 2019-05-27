@@ -1,0 +1,16 @@
+{
+  "name": "funcionarios",
+  "version": "1.0.0",
+  "description": "Um projeto qualquer",
+  "main": "funcionarios.js",
+  "scripts": {
+    "start": "nodemon",
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matheus Werneck",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
