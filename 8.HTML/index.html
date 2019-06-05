@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercícios HTML</title>
+    <style>
+        #conteudo{
+            padding: 30px
+        }
+    </style>
+</head>
+<body>
+    <header>Exercícios HTML</header>
+    <nav>
+        <a href="exercícios/teste.html">00 - Teste</a> |
+        <a href="exercícios/texto1.html">01 - Texto 1</a> |
+        <a href="exercícios/texto2.html">02 - Texto 2</a> |
+        <a href="exercícios/listas.html">03 - Listas</a> |
+        <a href="exercícios/listaAninhada.html">04 - Listas Aninhadas</a> |
+
+    </nav>
+    <section id = "conteudo"></section>
+    <br>
+    <footer>Curso de web moderno</footer>
+    <script>
+        document.querySelectorAll('a').forEach(link =>{  //Essa função vai jogar o conteúdo dá página a ser carregada dentro do corpo da tag <section> 
+            const conteudo = document.getElementById('conteudo')
+            link.onclick = function(e){
+               e.preventDefault()                             
+               fetch(link.href)
+                .then(resp => resp.text())
+                .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>

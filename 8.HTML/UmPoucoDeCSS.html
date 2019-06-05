@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Um pouco de CSS</title>
+        <link rel="stylesheet" href="poucoDeCSS.css">
+        <!-- O CSS aceita valores de cor por nome, rgb ou hexadecimal
+        A Classe na parte de CSS começa sempre com um ponto, enquanto no html só é preciso dizer q é uma classe 
+        O ID tem que começar com um # na parte de CSS-->
+        <style>
+            h1{
+                position: absolute;
+                top: 400px;
+                left: 200px;
+                font-size: 20px;
+                background-color: blue;
+                color: #cc0000;                
+            }
+            .fundovermelho{
+                background-color: rgb(255, 0, 0);
+            }
+            .negrito{
+                font-weight: bold
+            }
+
+           
+        </style>
+    </head>
+<!-- Não é recomendado aplicar CSS inline, e sim referenciá-lo ou no style na head ou no arquivo CSSs-->
+    <body>
+        <h1>CSS</h1>
+        <span id="textoPrincipal">Texto 1 </span><br>
+        <span class="fundoVermelho negrito">Texto 2</span><br><!-- Tem 2 classes aqui, uma fundo vermelho e uma negrito -->
+        <span class="fundoVermelho">Texto 3</span>
+    </body>
+</html>

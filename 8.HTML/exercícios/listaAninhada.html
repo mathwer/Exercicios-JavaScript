@@ -1,0 +1,52 @@
+<h1>Projeto</h1>
+<ul class="tree">
+    <li class = "Lista">Backend
+    <ul>
+        <li class = "Lista">
+           App  
+        </li>
+        <ul>
+            <li>produto.js</li>
+            <li>usuario.js</li>
+            <li>venda.js</li>
+        </ul>
+        <li class="Lista">
+            config
+            <ul>
+                <li>banco.js</li>
+                <li>rotas.js</li>
+                <li>servidor.js</li>
+            </ul>
+        </li>
+    </ul>
+    </li>
+    <li class="Lista">Frontend</li>
+    <ul>
+        <li class="Lista">
+            Public
+            <ul>
+                <li>app.css</li>
+                <li>app.js</li>
+                <li>index.html</li>                
+            </ul>
+        </li>
+    </ul>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+    let colapse = document.getElementsByClassName('Lista')
+    let i = 0
+    for (i = 0; i<colapse.lenght; i++){
+        colapse[i].addEventListener('click', function(){
+            this.classList.toggle("Active");
+            let content = this.nextElementSibling;
+            if (content.style.display === 'block'){
+                content.style.display == 'none'
+            }
+            else{
+                content.style.display == 'block'
+            }
+        })
+    }
+</script>
