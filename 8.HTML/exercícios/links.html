@@ -1,0 +1,36 @@
+<h1>Links</h1>
+
+<!-- URL Absoluta -->
+<h2>URLs Absolutas</h2>
+<a id='inicio' href="http://www.google.com.br">Google 1</a> <br>    <!-- Esse vai abrir o link na página atual, saindo do navegador-->
+
+<a href="http://www.google.com.br" target = '_blank'>Google aba</a>   <!-- Esse vai fazer abrir uma nova aba com a página do link-->
+<!-- No segundo caso é como dizer que o alvo para abrir a página é uma página em branco, ao invés da atual-->
+
+<p>No caso de url absoluta, não pode retirar o http://, senão vira uma url relativa ao projeto.</p>
+<br>
+<br>
+
+<!-- URL relativa-->
+
+<h2>URLs relativas</h2>
+<a href="index.html">Voltar 1</a> <p>Esse funciona apenas se entrar diretamente pelo index. Se entrar pelo links.html, ele vai tentar achar um arquivo chamar index.html dentro da pasta exercícios.</p>
+<a href="/index.html">Voltar 2</a> <p>Esse funciona em qualquer modo, pois aponta para o index na pasta raiz</p>
+<a href="../index.html">Voltar 3</a> <p>Esse é o oposto do primeiro, pois ele direciona para a pasta diretamente superior</p> 
+<p>Mas ele vai funcionar pois ele não pode sair da pasta que está no momento. O HTML funciona dessa forma por questão de segurança</p>
+
+<a href="mailto:email@empresa.com.br">Entre em contato</a><br><br>
+
+<!-- foi usado div#noticia, nesse caso, já foi criado um div com id notícia. Funcionaria caso utilizasse div.noticia, para criar com uma classe-->
+
+<div id="noticia" style="position:absolute; top:2000px">
+    <h1>Notícia Buemba!!!</h1>
+    <p>não era nada :B</p>
+    <a href="#inicio">Ir para início
+    </a>
+</div>
+<span class="teste"></span>
+
+<a href="#noticia">Ir para notícia nessa página</a>
+
+

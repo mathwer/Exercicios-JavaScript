@@ -1,0 +1,60 @@
+<table>
+    <caption>Produtos</caption>
+    <thead><!--Cabeçalho da tabela-->
+        <tr>
+            <th>Produto</th>  <!-- Table head, o mesmo que table data mas é cabeçalho-->
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>    <!--Table Row, linha da tabela-->
+            <td>IPad</td>   <!-- Table data, cada item q preenche o dado-->
+            <td>3280</td>
+            <td>5</td>
+            <td>160000</td>
+        </tr>
+        <tr>
+            <td>Sansumg S9</td>
+            <td>2649,00</td>
+            <td>8</td>
+            <td>212900</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total</td>  <!--Colspan Diz quantas colunas essa celula vai utilizar e rowSpan diz quantas linhas-->
+            <td>37500</td>
+        </tr>
+        <!-- <tr>
+            <td>Teste</td>  Caso não tivesse essa propriedade ocuapndo mais uma linha, o Total ocuparia só uma linha
+        </tr> -->
+    </tfoot>
+</table>
+
+<style>
+    table{
+        border-collapse: "collapse";
+
+    }
+
+    th, td{
+        padding: 10px;
+                
+    }
+
+    thead tr{ 
+        border-bottom: solid 3px #444;
+    }
+
+    tbody tr:hover {
+        background-color: #dedede
+    }
+
+    tfoot{
+        background-color: #444;
+        color: #Fff;
+        font-weight: bold;
+    }
+</style>

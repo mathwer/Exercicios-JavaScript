@@ -1,0 +1,57 @@
+<!-- Colocando imagens dentro de um parágrafo, de modo que cada uma fique dentro de uma linha -->
+
+<p><img wb-img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro da Cidade" width="513" height="342" title="Muro da cidade por Tarso Bessa"></p>
+<!-- Foi usado o caminho absoluto. A lógica é a mesma da usada nas aulas de links-->
+<!-- A tag alt é muito utilizada quando não é possível mostrar a imagem ou para deficientes visuais -->
+<!-- Não é necessário colocar width e height, mas colocando-os é possível fixar o tamanho da imagem -->
+<!-- Title é o que aparece quando se coloca o mouse em cima da imagem -->
+
+<p>
+    <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" 
+    alt="Intro cod3r" height="342">
+</p>
+
+<p class="circular">
+    <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de Janeiro" height="342">
+</p>
+
+<p class="texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="Avatar" height="50" align='left'>
+        Texto sdpfldfl asdfp  fkpoaksp oakpfvo ,adprg,pa ,p´, ´P,sr´g ,earpo,b pd´lf,b pál,rg l, sad ard qef jaspd kjplkeg pla´prlg áerplg ápelr´go mkqa3pi ngaiun4ioau4foapn3fla4ngla4GPpoigj c13f arga 43 3g 
+    </p>
+
+<p class="cidade"></p>
+
+<p>
+    <picture>
+        <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+            media="(min-width: 600px"> 
+            <!-- ele só vai mostrar essa imagem se a largura for de no mímimo 600px, por causa do componente media -->
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+    </picture>
+</p>
+
+
+<style>
+    .circular{
+        width: 513px;
+        background-color: #444;
+    }
+
+    .texto{
+        width: 400px
+    }
+
+    .texto img{
+        margin-right: 10px
+    }
+
+    .cidade{
+        width: 513px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        }
+</style>
+
