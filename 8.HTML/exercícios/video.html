@@ -1,0 +1,82 @@
+<video id='meuVideo' width="800" height="450" controls autoplay controlsList ='nodownload'> 
+    <!-- O componente controls habilita os controles do vídeo, como dar play, colocar em tela cheia -->
+    <source src='http://files.cod3r.com.br/curso-web/video.mp4' type='video/mp4'>
+        <!-- Com a tag <source>, é possível utilizar vídeos diferentes -->
+    Seu browser não suporta tag de vídeo
+</video>
+
+<div wm-progresso='meuVideo' class='progresso'>
+    <div></div>    
+</div>
+
+<div>
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<style>
+    .progresso{
+        height: 20px;
+        width: 500px;
+        border: solid 1px #444444;
+        margin: 20px;
+    }
+
+    .progresso > div {
+        background-color: red;
+        color: white;
+        height: 100%;
+        text-align: center;
+        font-size: 14px;
+        width: 0%
+    }
+</style>
+
+<script>
+    /*
+    //Esses funcionaram
+    let video = document.getElementById('meuVideo')
+
+    function pause() {  //Não esquecer de chamar essas funções dentro da tag do botão correspondente
+        video.pause()
+    }
+
+    function play() {
+        video.play()
+    }
+    //Esse não funcionou
+    let duracao = video.duration
+    let tempo = video.currentTime
+    let progresso = (tempo/duracao)*100
+
+    function barraDeProgresso(duracao, tempo){
+        barra = getElementById('barra')
+        let id = setInterval(frame, 10)
+        function frame(){
+            if (video.paused === true){
+                clear(id)
+            }
+            else{
+                barra.style.width == `${progresso}%`
+            }
+        }
+    }
+    */
+    //Solução do professor, de forma mais genérica
+    function configurarVideo(id){
+        const video = document.getElementById(id)
+        video.oncontextmenu = () => false //impedir o usuário de fazer o download do vídeo com o botão direito
+        
+        document.querySelector(`[wm-play = ${id}]`).onclick = e => video.play()
+        document.querySelector(`[wm-pause = ${id}]`).onclick = e => video.pause()    
+        
+        setInterval(()=>{
+            const percentual = (video.currentTime / video.duration) * 100
+            const valorDiv = document.querySelector(`[wm-progresso=${id}] > div`)
+            valorDiv.style.width = `${percentual}%`
+            valorDiv.innerHTML = `${percentual.toFixed(1)}%` //Isso vai mostrar o valor dentro da tag HTML, com o valor até uma casa decimal
+        }, 100)
+    }
+
+    configurarVideo('meuVideo') //Chamando a função em cima do vídeo com id = 'meuVideo'
+</script>

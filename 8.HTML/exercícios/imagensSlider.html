@@ -1,6 +1,6 @@
 <div wm-slider>
 
-        <p><img wb-img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro da Cidade" width="513" height="342" title="Muro da cidade por Tarso Bessa"></p>
+        <p><img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro da Cidade" width="513" height="342" title="Muro da cidade por Tarso Bessa"></p>
         <!-- Foi usado o caminho absoluto. A lógica é a mesma da usada nas aulas de links-->
         <!-- A tag alt é muito utilizada quando não é possível mostrar a imagem ou para deficientes visuais -->
         <!-- Não é necessário colocar width e height, mas colocando-os é possível fixar o tamanho da imagem -->
@@ -33,30 +33,56 @@
 </div>
 
 <script>
-  let img = document.querySelector('[wm-slider]')
-  let pos = 0
-  let id = setInterval(frame, 10)
-  function frame(){
-      const slide = img.nextElementSibling
-      const dplay = slide.style.display
-      slide.style.display = dplay === 'block'
-      
-      if (pos == 350){
-          clearInterval(id)
-          pos = 0 
-          slide.style.display = dplay === 'none'
-      }
-      else{
-          pos++;
-          slide.style.left = pos + 'px'
-      }
+  function mover(elem, inicio, fim, passo, callback){  //Passo é quanto move, e a callback é a notificação de quando terminar o movimento
+    const novoInicio = inicio - passo
+    if (novoInicio >= fim){
+        elem.style.left = novoInicio + 'px'
+        setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)  //Ocorrendo a cada 7 milissegundos 
+    }
+    else{
+        callback()        
+    }
+  }
+  /*
+  const p = document.querySelector('[wm-slider] > p')
+  p.style.display = 'block'
+
+ mover(p, 1500, -520, 5, () => {              //  Esse move apenas o primeiro elemento
+      console.log('Terminou')
+  }) */
+
+  function slider(){
+      const elementos = document.querySelectorAll('[wm-slider] > p') //Todos os elementos de tag p que estão dentro de um elemento com a tag wb-slider
+      const slides = Array.from(elementos) //É necessário pois Elementos não é um array propriamente dito, ele é um node list, que não tem algumas propriedades de array. Então ´
+      //é necessário  utilizar o Array.from() para transformá-lo em um array
+      exibirSlide(slides, slides[0])
   }
 
+  function exibirSlide(slides, slide){
+      slide.style.display = 'block'
+
+      const inicio = innerWidth
+      const fim = -slide.clientWidth
+
+      slide.style.left = `${inicio} px`
+
+      mover(slide, inicio, fim, 5, ()=>{
+        slide.style.display = 'none'    //Não é absolutamente necessário, pois ele já vai estar fora do campo de visão
+        exibirSlide(slides, getProximo(slides, slide))
+      })
+    }
+    
+    function getProximo(lista, atual) {
+        const i = lista.indexOf(atual) + 1
+        return i < lista.length ? lista[i] : lista[0]
+    }
+      
+ slider()
 </script>
 
 <style>
     p{
         position: absolute;
-        display: block
+        display: none
     }
 </style>
