@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anatomia CSS</title>
+    <style>
+        .selector{
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+            /*Mútiplos valores */
+            border: solid 5px navy; /*Shorthand property*/
+            font-family: Helvetica,monospace; /* Caso a helvetica não seja encontrada, ele irá carregar a monospace */
+            /* Funções  */ 
+            width: calc(100% - 100px); /*Função pre-determinada no CSS*/
+            width: 200px; /*Vai sobrescrever o valor anteior*/
+            background-color: rgb(34, 153, 189)
+        }
+
+        /* Usando uma pseudo-classe */
+        .selector:hover { /*Será aplicada quando o mouse do usuário passar por cima */
+            background-color: orangered;
+        }
+        /*Usando um pseudo elemento*/
+        .selector::first-letter{ /*Dois pontos dois pontos para acessar elementos*/
+            font-size: 60px;
+            font-weight: bold
+        }
+        /*Padrão de nomenclatura*/
+        /*Usar preferencialmente um só padrão, ou cammel case ou dashcase.
+        Além disso, o nome de classe é case-sensitive, diferentemente das tags do html*/
+    </style>
+</head>
+
+<body>
+    <div class="selector">Conteúdo</div>
+</body>
+
+</html>
