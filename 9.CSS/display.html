@@ -5,7 +5,32 @@
     <meta charset="UTF-8">
     <title>Display</title>
     <style>
-        /* ... */
+        body{
+            font-size: 40px;
+            color: white;
+            background-color: coral;
+        }
+        ul{
+            padding: 0;
+        }
+        div{
+            background-color: seagreen;
+        }
+        span{
+            background-color: dodgerblue;
+        }
+        li{ background-color: purple;}
+
+        div, span, li{
+            width: 50%;
+            width: 200px;
+            height: 80px; /* span ignora altura e largura*/
+            padding-top: 30px;
+            text-align: center;
+            display: block; /*Cada elemento passa a ter sua linha, seu bloco. Além disso, o span passa a ser definido por altura e largura*/
+            display: inline; /*Faz o exato oposto. Só quebra a linha porque tem um elemento ul. Além disso, altura e largura são ignorados. Apenas o padding continua funcionando*/
+            display: inline-block; /*Esse faz os itens ficarem na mesma linha, mas */
+        }
     </style>
 </head>
 

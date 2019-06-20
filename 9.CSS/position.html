@@ -5,7 +5,62 @@
     <meta charset="UTF-8">
     <title>Position</title>
     <style>
-        /* ... */
+        div{
+            font-size: 60px;
+            padding: 30px;
+            border: solid 5px black;
+            color: white;
+        }
+        .static{
+            top: 100px;
+            left: 100px;
+            background-color: steelblue;            
+        }
+        .fixed{
+            position: fixed;    /* Elemento fixa fixo, independente de rolar a página ou não */
+            bottom: 30px;
+            right: 0px;
+            background-color: orange;
+        }
+
+        .relative1{
+            position: relative; /* Leva em consideração o elemento anterior */
+            left: 50px;
+            top: 5px;
+            background-color: seagreen;
+        }
+
+        .absolute1{
+            position: absolute;
+            left: 350px;
+            top: 120px;
+            background-color: violet;
+        }
+
+        .relative2{
+            position: relative;
+            left: 250px;
+            top: 2000px;
+            width: 200px;
+            height: 200px;
+            background-color: grey;
+        }
+
+        .absolute2{
+            position: absolute; /* Se posiciona em posição absoluta em relação ao elemento pai, a DIV no caso. Mas isso só acontece porque existem um position relative no pai */
+            left: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+        }
+
+        .sticky{    /* útil para cabeçalhos */
+            position: sticky; /* Não funciona no safari, teria que ser -webkit-sticky */
+            background-color: #777;
+            top: 0; /* Diz a quantidade de pixels q vai ficar afastado do top */
+        }   
+
     </style>
 </head>
 

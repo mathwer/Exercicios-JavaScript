@@ -5,7 +5,28 @@
     <meta charset="UTF-8">
     <title>Unidades #01</title>
     <style>
-        /* ... */
+        .unidades-absolutas{
+            position: absolute; /* Algumas coisas só vão funcionar se a position for absolute */
+            font-size: 40px;
+            padding: 20px;
+            border: solid 5px #222;
+            margin: 30px;
+            width: 4cm; /* Unidades métricas são pouco utilizadas, seriam mais importantes para caso de impressão, por exemplo. */
+            height: 30mm;
+            top: 150px; /* O top e o left não funcionariam caso não tivesse o position: absolute lá em cima. */
+            left: 200px;
+        }
+        .unidades-relativas{
+            position: absolute;
+            font-size: 4em; /* O padrão do google são 16 pixels na fonte média, então nesse caso, ficariam 64px*/
+            padding: 5%;
+            BORDER: solid 1vw #222; /* A borda aumenta conforme aumenta o tamanho da página*/
+            margin: 8%;
+            width: 20vw;
+            height: 15vh;
+            bottom: 5%;
+            right: 5%;
+        }
     </style>
 </head>
 

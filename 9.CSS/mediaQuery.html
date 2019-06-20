@@ -12,6 +12,25 @@
             border: solid 5px;
             display: none;
         }
+        /* @media funciona como um filtro, especificando elementos de corte */
+        @media (max-width: 600px){  /* Se a largura for no máx 600px, o display será block */
+            .muito-pequeno{
+                display:block;
+            }
+        }
+
+        @media (max-width: 1000px),(orientation: portrait){ /* Aqui funciona como uma OR, caso um dos dois seja verdadeiro, o display será block */
+            .pequeno-retrato{
+                display:block;
+            }
+        }
+        
+        @media(min-width: 500px) and (max-width:1000px) { /* Porta AND no sentido puro */
+            .intervalo{
+                display: block;
+            }
+        }
+
     </style>
 </head>
 <body>

@@ -4,7 +4,22 @@
     <meta charset="UTF-8">
     <title>Unidades #02</title>
     <style>
-        /* ... */
+        .fora{
+            position: relative;
+            background-color: orange;
+            width: 400px;
+            height: 400px;
+            padding: 50px;  /*Aumenta em 100px o tamanho*/ 
+        }
+        .dentro{
+            background-color: mediumvioletred;
+            height: 100px;
+            width: 100%;
+            position: static; /* Position padrão, ocupando apenas o espaço do conteúdo */
+            position: relative; /* conteúdo novamente */
+            position: absolute; /* Pega o conteúdo e o padding também, mas respeita o padding inicial */
+            position: fixed; /* Tamanho do viewporting, indo até o final, quando em 100%*/
+        }
     </style>
 </head>
 <body>

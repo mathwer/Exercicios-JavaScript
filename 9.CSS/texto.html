@@ -10,11 +10,69 @@
         * {
             margin: 0;
         }
+        html{
+            font-size: 30px;
+        }
+        div{
+            font-size: 60px;
+        }
 
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        p{
+            font-size: 1em;
+            font-size: 100%; /* Ambos são o valor padrão */
+            font-size: 16px; /* 16px é o padrão do chrome*/
+            font-size: 12pt;
+
+            /*Valores absolutos*/
+            font-size: 100px; /* Tamanho do pixel é relativo à densidade de pixel da tela */
+            font-size: 72pt; /* Pontos, relativo à 1 polegada*/
+            font-size: 1in; /* Polegada */
+
+            /* Unidades relativas */
+            font-size: 2em;     /* Relativo ao pai ou fonte mais próxima. Se não tiver nada, 1em será 16 px no chrome. */
+            font-size: 2rem;
+            font-size: 50vh;
+            font-size: 10vw;
+
+            font-family: monospace;
+            font-family: Georgia, serif;
+            font-family: Verdana, sans-serif;
+            font-family: 'Indie Flower', coursive;
+
+            font-weight: 900;
+            font-weight: bolder;
+            font-style: italic;
+            text-transform: capitalize;
+            /* text-decoration: overline underline line-through; */
+            word-spacing: 20px;
+            letter-spacing: 10px;
+            text-align: center;
+            line-height: 2.5em;
+            
+        }
+
+        .botao{
+            font-size: 28px;
+            text-decoration: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+        }
+
+        .destaque{
+            color: white;
+            background-color: red;
+            box-shadow: 2px 2px 1px 1px black;
+        }
+
+        .destaque:active{
+            box-shadow: none;
+            background-color: #ff000080;
         }
     </style>
 </head>

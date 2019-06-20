@@ -7,6 +7,17 @@
         body {
             font-size: 45px;
         }
+        div{
+            background-color: deepskyblue;
+            width: 100%;
+            /*O tamanho final fica extrapolado para os lados, por causa do padding*/
+            height: 300px;
+            padding: 100px;
+            border: solid 20px;
+            box-sizing: border-box; /*Considera o tamanho da caixa, não o do conteúdo, fazendo que o 100% fique do tamanho desejado, incluindo o tamanho da borda e do padding*/
+            /* Essa não é uma propriedade que é transmitida por padrão, ou seja, se colocar no body, ela não passará para a div */
+        }
+
     </style>
 </head>
 <body>
