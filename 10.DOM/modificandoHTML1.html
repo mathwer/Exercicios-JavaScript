@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        const body = document.querySelector('body')
+        const div1 = document.createElement('div')
+        div1.classList.add('destaque');
+        div1.innerHTML = 'Primeiro'
+
+        const div2 = document.createElement('div')
+        div2.setAttribute('wm-attribute', 'valor')
+        div2.innerHTML = 'Segundo'
+        
+        const p = document.createElement('p')
+        p.innerHTML= 'Terceiro'
+
+        const div3 = document.createElement('div')
+        div3.appendChild(p) //Coloca como o último filho da div 3 
+
+        body.appendChild(div1)
+        body.appendChild(div2)
+        body.appendChild(div3) //Os filhos da div também são adicionados 
+
+        const texto = document.createTextNode('Antes...')
+        div3.insertBefore(texto, div3.childNodes[0]) //Adiciona o elemento filho especificado na posição anterior à indicada. No caso, antes da posição 1. 
+
+        const div4 = div3.cloneNode(true) //Sendo true, ele copia os filhos. Caso falso, só copia o elemento com classe e innerHTML
+
+        body.appendChild(div4)
+        body.removeChild(div3)
+
+        
+    </script>
+</body>
+
+</html>

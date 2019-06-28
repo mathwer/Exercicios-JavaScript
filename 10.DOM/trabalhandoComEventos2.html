@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <script>
+        const item = document.querySelector('div')
+        item.style.position = 'absolute'
+
+        item.onmousemove = e => {
+            const item = e.target
+            item.style.cursor = 'move' //muda o estilo do cursor 
+            if (e.buttons) {
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px` // A altura é a altura do mouse menos metade da altura do elemento, ficando no meio 
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px` //Cuidado com espaço do } para o px. Se tiver, não vai funcionar. 
+                //Caso arraste muito rápido, o mouse pode sair da div e isso fará com que o elemento não se mova mais.
+            }
+        }
+    </script>
+</body>

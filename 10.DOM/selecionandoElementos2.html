@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>              
+        document.querySelector('#primeiro').classList.add('destaque') //Nesse caso, é necessário passar o #, pois o queryselector espera um elemento css, mas não sabe qual.
+
+        const selecionar = seletor => 
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque')) //query selector retonar um nodeList, onde é possível utilizar o forEach, diferente do htmlCollection
+            //Apesar disso, o nodelist não tem map, filter ou reduce. Para utilizar esses, seria necessário passar para um array.
+        
+        const deselecionar = seletor => 
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+        selecionar('div')
+        deselecionar('*') //Seletor universal
+        selecionar('.terceiro.ultimo') //Se estiverem separados com espaço, não vai funcionar 
+
+        deselecionar('*')
+        selecionar(':not(#primeiro)') //Todos que não são o primeiro são selecionados.
+        deselecionar('*')
+
+        selecionar(':nth-child(1)') //Seleciona todos os primeiros filhos, no caso o primeiro, que é o primeiro filho do body e o span, que é o primeiro filho da div
+
+        deselecionar('*')
+        selecionar('div:nth-of-type(1)') //Pega o primeiro elemento do tipo div. 
+
+        deselecionar('*')
+        selecionar('[wb-attrib]')
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>              
+        document.getElementById('primeiro').classList.add('destaque') //Não precisa colocar # antes do ID, pois ele já está esperando um ID.
+
+        const divs = document.getElementsByTagName('div')
+        Array.from(divs).forEach(e => e.classList.remove('destaque')) //Remove a classe destaque de todas as divs. Mas primeiro ele transforma o divs é um array, ao invés de uma lista de elementos.
+
+        const divsArray = [...divs] //Operador spread, transforma a lista em um array
+        divsArray.forEach(e => e.classList.add('destaque'))
+
+        const ultimosElementos = document.getElementsByClassName('ultimo') //Mesmo que venha apenas um elemento, ele ainda vem dentro de um htmlCollection, tendo q ser transformado em array.
+        for(let e of ultimosElementos){
+            e.classList.remove('destaque')
+        }
+
+    </script>
+</body>
+</html>

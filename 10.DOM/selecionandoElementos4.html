@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #04</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <p>Início</p>
+    </div>
+    <div>
+        <ul>
+            <li>Pedro</li>
+            <li>Ana</li>
+            <li>Bia</li>
+        </ul>
+    </div>
+    <div>
+        <p>Fim</p>
+    </div>
+    <script>
+        function log(){
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log;
+        HTMLElement.prototype.log = log;
+        NodeList.prototype.log = log;
+        Node.prototype.log = log;
+
+        const lista = document.querySelector('div ul')
+        lista.parentNode.log();
+        lista.childNodes.log(); //Vai trazer elementos de texto, que são os espaços entre as tags HTML. Podem ser retirados ao deixas as tags juntas
+
+        const primeiro = lista.firstChild;
+        primeiro.log();
+        primeiro.nextSibling.log();
+
+        const ultimo = lista.lastChild;
+        ultimo.log();
+        ultimo.previousSibling.log();
+
+        lista.children.log(); //Não vem os textos, só as lis, mas não é um nodelist, e sim um htmlCollection.
+        lista.firstElementChild.log(); //Traz o primeiro elemento definido, no caso um definido.
+        lista.lastElementChild.log();
+        lista.parentNode.previousElementSibling.log() //Pega a div início, que é irmã anterior ao elemento pai da lista 
+        lista.parentNode.nextElementSibling.log()
+
+        document.querySelectorAll('div ul li').log()  //Pega exatamente os elementos que deseja, sem os textos e sem correr riscos de pegar algo que não quer ou ter que ficar navegando entre os irmãos.
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+            <!-- onclick="navegarEm5s(event)"  É interessante para quem lê o código entender, mas não no sentido de técnica, pois inclui hardcode-->
+        <a espera-um-pouco href="https://google.com.br">Google</a> 
+    </div>
+    <script>
+        function navegarEm5s(e){
+            e.preventDefault() //Previne o comportamento padrão do link
+            console.log('Saindo em 5s')
+            setTimeout(() => {
+                const link = e.target
+                window.location.href = link.href //Acessa o link após 5 segundos
+            }, 5000);
+        }
+
+        // const a = document.querySelector('a')
+        // a.onclick = navegarEm5s //É bom pq fica tudo no script, mas não deixa claro que o elemento está sendo manipulado
+
+        const a = document.querySelector('[esperar-um-pouco]') //É o jeito ideal, pois o browser irá ignorar e fica marcado na tag que ela está sendo manipulada por algum script.
+        a.onclick = navegarEm5s;
+    </script>
+</body>

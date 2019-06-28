@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Classes</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        Classes
+    </div>
+    <script>
+        const classes = document.querySelector('div').classList;
+        classes.add('destaque');
+        classes.remove('destaque');
+        classes.toggle('destaque') //Se tiver destaque retira, senão, coloca
+        console.log(classes.contains('destaque'));
+        console.log(classes.length);
+        classes.toggle('destaque');
+        console.log(classes.length);
+
+        classes.add('destaque1')
+        classes.add('destaque2')
+        console.log(classes.length)
+
+        for(let c of classes) {
+            console.log(c)
+        }
+
+        classes.forEach(c => console.log(c)) //Não tem map, filter e nem reduce. Precisa transformar em array 
+
+        const classesArray = [...classes]   //Transformando em array utilizando o operador spread. Agora é possível utilizar map, reduce e filter
+        console.log(classesArray)
+    </script>
+</body>
+
+</html>
