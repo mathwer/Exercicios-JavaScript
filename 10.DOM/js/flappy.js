@@ -1,8 +1,7 @@
 function novoElemento (tagName, className){
     const elem = document.createElement(tagName);
     elem.className = className;
-    return elem
-
+    return elem;
 }
 
 function Barreira(reversa = false){ //Criando a barreira
@@ -11,8 +10,8 @@ function Barreira(reversa = false){ //Criando a barreira
     const borda = novoElemento('div', 'borda');
     const corpo = novoElemento('div', 'corpo');
 
-    this.elemento.appendChild(reversa? corpo:borda) //Se não for reversa, primeiro coloca corpo e depois borda, se for, primeiro borda e depois corpo 
-    this.elemento.appendChild(reversa? borda:corpo)
+    this.elemento.appendChild(reversa? corpo : borda) //Se não for reversa, primeiro coloca corpo e depois borda, se for, primeiro borda e depois corpo 
+    this.elemento.appendChild(reversa? borda : corpo)
 
     this.setAltura = altura => corpo.style.height = `${altura}px`  //Seta a altura do corpo. Pode fazer isso ficar aleatório para que venha em tamanhos variados.
 
@@ -22,7 +21,7 @@ function Barreira(reversa = false){ //Criando a barreira
 // b.setAltura(200)             Testando as crianção de barreiras 
 // document.querySelector('[wm-flappy]').appendChild(b.elemento)
 
-function parDeBarreiras(altura, abertura, x){
+function ParDeBarreiras(altura, abertura, x){
     this.elemento = novoElemento('div', 'par-de-barreiras');
 
     this.superior = new Barreira(true); //Quando usa o this nesse caso, essa função passa a ser visível fora da função, pois é uma função construtora.
@@ -46,22 +45,22 @@ function parDeBarreiras(altura, abertura, x){
     this.setX(x);
 }
 
-function Barreiras(altura, largura, abertura, espaço, notificarPonto){    //Construir várias barreiras 
+function Barreiras(altura, largura, abertura, espaco, notificarPonto){    //Construir várias barreiras 
     this.pares = [
-        new parDeBarreiras(altura, abertura, largura),
-        new parDeBarreiras(altura, abertura, largura + espaço),
-        new parDeBarreiras(altura, abertura, largura + espaço * 2),
-        new parDeBarreiras(altura, abertura, largura + espaço * 3)
+        new ParDeBarreiras(altura, abertura, largura),
+        new ParDeBarreiras(altura, abertura, largura + espaco),
+        new ParDeBarreiras(altura, abertura, largura + espaco * 2),
+        new ParDeBarreiras(altura, abertura, largura + espaco * 3)
     ]
 
     const deslocamento = 3 // Será a velocidade da barreira
     this.animar = () => {
         this.pares.forEach(par => {
-            par.setX(par.getX()-deslocamento) //Deslocando a barreira ao longo do eixo X 
+            par.setX(par.getX() - deslocamento) //Deslocando a barreira ao longo do eixo X 
 
             //Vendo se o elemento saiu da tela do jogo
             if (par.getX() < -par.getLargura()){ //Quando some completamente do jogo
-                par.setX(par.getX() + espaço *this.pares.lenght) //Manda pro final da tela, ficando como o último par. 
+                par.setX(par.getX() + espaco * this.pares.length) //Manda pro final da tela, ficando como o último par. 
                 par.sortearAbertura() //Sortear uma nova abertura, para não ficar tudo sempre na mesma posição.
             }
 
@@ -69,7 +68,7 @@ function Barreiras(altura, largura, abertura, espaço, notificarPonto){    //Con
             const cruzouOMeio = par.getX() + deslocamento >= meio //Acabou de cruzar o meio
                 && par.getX() < meio
 
-            if(cruzouOMeio) {notificarPonto()}
+            if(cruzouOMeio) notificarPonto()
         })
     }
 }   
@@ -80,14 +79,14 @@ function Passaro(alturaDoJogo){
     this.elemento.src = 'imgs/passaro.png'
 
     this.getY = () => parseInt(this.elemento.style.bottom.split('px')[0])
-    this.setY = y => this.elemento.style.bottom = y 
+    this.setY = y => this.elemento.style.bottom = `${y}px`
 
-    window.onkeydown = e => voando = true; //Caso o usuário aperte qualquer tecla, o pássaro irá voar 
-    window.onkeyup = e => voando = false; 
+    window.onkeydown = () => voando = true; //Caso o usuário aperte qualquer tecla, o pássaro irá voar 
+    window.onkeyup = () => voando = false; 
 
     this.animar = () =>{
-        const novoY = this.getY() + (voando? 8 : 5) // Ele sobe mais rápido do que desce
-        const alturaMaxima = alturaDoJogo - this.elemento.height
+        const novoY = this.getY() + (voando ? 8 : -5) // Ele sobe mais rápido do que desce
+        const alturaMaxima = alturaDoJogo - this.elemento.clientHeight
 
         if (novoY <= 0){ //Pode fazer como colisão também, não só com limites 
             this.setY(0) // Impede o objeto de passar do chão 
@@ -102,17 +101,17 @@ function Passaro(alturaDoJogo){
 
     this.setY(alturaDoJogo/2) //Altura inical 
 }
-
-// const barreiras = new Barreiras(700, 1200, 200, 400)         Não funcionou :< 
+//  //Testando -> funcionou... eu acho
+// const barreiras = new Barreiras(700, 1200, 200, 400)
 // const passaro = new Passaro(700)
 // const areaDoJogo = document.querySelector('[wm-flappy]')
 
 // areaDoJogo.appendChild(passaro.elemento)
-// barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
+// barreiras.pares.forEach(par => {areaDoJogo.appendChild(par.elemento)})
 // setInterval(() => {
 //     barreiras.animar()
 //     passaro.animar()
-// },20)
+// }, 20)
 
 function Progresso(){
     this.elemento = novoElemento('span', 'progresso')
@@ -137,7 +136,7 @@ function estaoSobrepostos(elementoA, elementoB){
 }
 
 function colidiu(passaro, barreiras){
-    let colidiu = falso
+    let colidiu = false
     barreiras.pares.forEach(parDeBarreiras =>{
         if (!colidiu){
             const superior = parDeBarreiras.superior.elemento
@@ -176,8 +175,9 @@ function FlappyBird(){
                 clearInterval(temporizador)
             }
         }, 20)
-    }
-
-    new FlappyBird().start()
-
+    }   
 }
+
+location.reload()
+
+new FlappyBird().start()
