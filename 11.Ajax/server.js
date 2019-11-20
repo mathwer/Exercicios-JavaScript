@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 
 app.use(express.static('.')) //Provê os arquivos estáticos, ou seja, os html, js e css
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true  }))
 app.use(bodyParser.json()) //Transforma json
 
 app.get('/teste', (req, res) => res.send('OK')) //Função chaamda quando o /teste for chamado a partir de uma função get
@@ -27,6 +27,23 @@ app.post('/upload', (req, res) =>{ //Utilizando o método post para enviar o arq
             return res.end('Ocorreu um erro.')  //Caso ocorra um erro, ele já chama a mensagem de erro, e termina a função. 
         }
         res.end('Concluído com sucesso!')
+    })
+})
+
+app.post('/formulario', (req,res) => {
+    res.send({
+        ...req.body,
+        id: 1 
+    })
+})
+
+app.get('/parOuImpar', (req, res)=>{
+    //req.body
+    //req.query
+    //req.params <- mais interessante que o params
+    const par = parseInt(req.query.numero)% 2 === 0 
+    res.send({
+        resultado : par ?  'par' : 'impar'
     })
 })
 

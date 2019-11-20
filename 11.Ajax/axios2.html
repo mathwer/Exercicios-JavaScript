@@ -14,6 +14,20 @@
     <div id="post"></div>
 
     <script>
-        // ...
+        function exibirResultado(id, dados){
+            const texto = JSON.stringify(dados)
+            document.getElementById(id).innerHTML = texto 
+
+        }
+        axios.get('parOuImpar',{ //O Get diz aonde vai entrar a informação, nesse caso.
+            params:{
+                numero: 5 //Vai dizer se esse número é par ou ímpar
+            }   
+        }).then(resp=> exibirResultado('get', resp.data))
+
+        axios.post('fomulario', {
+            nome: 'João',
+            sobrenome: 'Silva'
+        }).then(resp => exibirResultado('post', resp.data))
     </script>
 </body>
